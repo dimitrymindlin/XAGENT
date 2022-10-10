@@ -21,7 +21,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 from Agent.answer import Answers
 from Agent import utils
-from anchor import anchor_tabular
+#from anchor import anchor_tabular
 
 # import the desired library
 from Agent.nlu import NLU
@@ -276,7 +276,9 @@ class Agent:
         #         print(evals)
         #         print(flow_ids)
         run_id = evals[evals['flow_id'].isin(flow_ids)]['run_id'].iloc[-1]
+        print("downloading model")
         run_downloaded = openml.runs.get_run(run_id)
+        print("downloaded model")
         task = openml.tasks.get_task(task_id)
         setup_id = run_downloaded.setup_id
 
